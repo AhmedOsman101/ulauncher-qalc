@@ -1,8 +1,8 @@
 {
   "required_api_version": "^2.0.0",
   "name": "Qalculate",
-  "description": "Query results from qalc (forked from ulauncher-gnome-calculator)",
-  "developer_name": "hippo_o_matic",
+  "description": "Query results from qalc (forked from u1f98e/ulauncher-qalc)",
+  "developer_name": "Ahmad Othman",
   "icon": "images/icon.svg",
   "options": {
     "query_debounce": 0.05

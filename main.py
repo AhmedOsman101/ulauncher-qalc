@@ -6,7 +6,6 @@ from ulauncher.api.shared.event import KeywordQueryEvent
 from ulauncher.api.shared.item.ExtensionResultItem import ExtensionResultItem
 from ulauncher.api.shared.action.RenderResultListAction import RenderResultListAction
 from ulauncher.api.shared.action.CopyToClipboardAction import CopyToClipboardAction
-from ulauncher.api.shared.action.RunScriptAction import RunScriptAction
 import subprocess
 
 logger = logging.getLogger(__name__)
@@ -23,10 +22,10 @@ class KeywordQueryEventListener(EventListener):
         query = event.get_argument()
         logger.info("preferences %s" % json.dumps(extension.preferences))
         expression = subprocess.run(
-            ["qalc", query], stdout=subprocess.PIPE, text=True
+            ["qalc", "--base", "10", query], stdout=subprocess.PIPE, text=True
         ).stdout
         result = subprocess.run(
-            ["qalc", '-t', query], stdout=subprocess.PIPE, text=True
+            ["qalc", "--base", "10", "-t", query], stdout=subprocess.PIPE, text=True
         ).stdout
         items = [
             ExtensionResultItem(
